@@ -30,19 +30,15 @@
 #include "cpu/x64/matmul/jit_uni_sparse_matmul.hpp"
 using namespace dnnl::impl::cpu::x64::matmul;
 using namespace dnnl::impl::cpu::x64;
-#endif
-
-#if DNNL_AARCH64
+#elif DNNL_AARCH64
 #include "cpu/aarch64/matmul/brgemm_matmul.hpp"
-
+using namespace dnnl::impl::cpu::aarch64::matmul;
+using namespace dnnl::impl::cpu::aarch64;
 #ifdef DNNL_USE_ACL
 #include "cpu/acl/matmul/acl_lowp_matmul.hpp"
 #include "cpu/acl/matmul/acl_matmul.hpp"
 using namespace dnnl::impl::cpu::acl::matmul;
 using namespace dnnl::impl::cpu::acl;
-#else
-using namespace dnnl::impl::cpu::aarch64::matmul;
-using namespace dnnl::impl::cpu::aarch64;
 #endif
 #endif
 
